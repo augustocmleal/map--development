@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapa de Rotas</title>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <label for="origin">Origin:</label>
+    <input type="text" name="origin" id="origin">
+
+    <label for="destination">Destination:</label>
+    <input type="text" name="destination" id="destination">
+
+  <script type="text/javascript" src="js/maps.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyZlScCJLwLfhXV7WH6YFDlDwDVs8UZWQ&callback=initMap">
+    </script>
+  </body>
+</html>
+
+
