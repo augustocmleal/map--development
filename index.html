@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html ng-app="module.main">
+  <head>
+    <title>Mapa de Rotas</title>
+    <script type="text/javascript" src="js/script-tags.js"></script>
+  </head>
+  <body ng-controller="MainController">
+    <ng-map zoom="10" center="-22.907715, -43.102428">
+    <traffic-layer></traffic-layer>
+    <directions
+          draggable="true"
+          panel="directions-panel"
+          travel-mode="DRIVING"
+          origin="{{origem}}"
+          waypoints="{{waypoints}}"
+          optimize="true"
+          destination="{{origem}}">
+        </directions>
+  </ng-map>
+  <div class="container-fluid">
+  <hr/>
+    <div class="col-xs-144 col-sm-144 col-md-100 col-md-offset-22 col-lg-100 col-lg-offset-22 form-inline">
+      <label for="origem">Origem:</label>
+      <select class="form-control" ng-model="origem" ng-repeat="o in origens" ng-init="origem=origens[0].endereco" disabled>
+        <option value="{{o.endereco}}">{{o.nome}}</option>
+      </select>
+
+      <label for="destino">Destino:</label>
+      <select class="form-control" ng-model="destino" ng-repeat="o in origens" ng-init="destino=origens[0].endereco" disabled>
+        <option value="{{o.endereco}}">{{o.nome}}</option>
+      </select>
+      <div class="pull-right input-group">
+        <input class="form-control" type="text" ng-model="ponto" placeholder="Digite pontos de parada"/>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-primary" ng-click=(adicionarDestino())>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <th>#</th>
+          <th>Descrição</th>
+          <th>Referência</th>
+          <th>Ações</th>
+        </thead>
+        <tbody ng-repeat="waypoint in waypoints">
+          <tr>
+            <td>{{$index + 1}}</td>
+            <td>Parada </td>
+            <td>{{waypoint.location}}</td>
+            <td><a class="" ng-click="waypoints.splice($index, 1)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+
+    <div id="directions-panel" style="display: none; width: 28%; float:left; height: 100%; overflow: auto; padding: 0px 5px">
+    </div>
+  </div>
+  </body>
+</html>
+
+

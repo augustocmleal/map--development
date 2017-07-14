@@ -1,0 +1,13 @@
+
+a {
+color: red;
+text-decoration: none;
+}
+a:hover {
+  color: darken(red, 15%);
+  text-decoration: underline;
+}
+a:focus {
+  color: darken(red, 15%);
+  text-decoration: underline;
+}

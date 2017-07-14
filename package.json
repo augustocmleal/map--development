@@ -1,0 +1,12 @@
+{
+  "name": "Light Route",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "author": "Augusto Leal",
+  "license": "ISC",
+  "main": "lightroute-server.js",
+  "devDependencies": {},
+  "description": ""
+}
